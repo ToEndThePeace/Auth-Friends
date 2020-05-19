@@ -1,7 +1,18 @@
 import React from "react";
+import { connect } from "react-redux";
 
-function App() {
-  return <div className="App">hello world</div>;
+function App(props) {
+  const { login } = props;
+  return (
+    <div className="App">
+      <div>{login.helloWorld}</div>
+    </div>
+  );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  const { login } = state;
+  return { login };
+};
+
+export default connect(mapStateToProps, {})(App);
